@@ -21,7 +21,7 @@
     <div id="container">
         <div id="header">
             <div id="rightTop">
-                当前用户: <span>&nbsp;<%=session.getAttribute("currentUserName")%></span>
+                当前用户: <span>&nbsp;${currentUser.chrName}</span>
                 <a href="${pageContext.request.contextPath}/Logout">&nbsp;&nbsp;[安全退出]</a>
             </div>
             <div id="menu">
@@ -29,7 +29,7 @@
                 <%--将 <ul> 标签与 <li> 标签一起使用，创建无序列表。--%>
                 <ul>
                     <%--# 表示当前页面地址--%>
-                    <li><a href="#">首页</a></li>
+                    <li><a href="${pageContext.request.contextPath}/main.jsp">首页</a></li>
                     <li class="menuDiv"></li>
                     <li><a href="${pageContext.request.contextPath}/GetDownloadList">资源下载</a></li>
                     <li class="menuDiv"></li>

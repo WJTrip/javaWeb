@@ -11,7 +11,7 @@ body{
 
 #loginForm{
     width: 380px;
-    height: 230px;
+    height: 280px;
     background: rgba(255,255,255,0.8);
     margin: 200px auto;
     padding-top: 30px;
@@ -68,4 +68,12 @@ body{
     background-color: #00ffff00;
     color: #194f4f;
     font-weight: bold;
+}
+
+.auth_err{
+    font-size: 12px;
+    color: red;
+    display: block;
+    height: 16px;
+    line-height: 16px;
 }

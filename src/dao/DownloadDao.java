@@ -11,12 +11,12 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class DownloadDao {
-    public Download get(String id)  {
+    public Download get(String id) {
         Download download=null;
+        Connection conn=new JdbcUtil().getConnection();
         try{
-            Connection connection= JdbcUtil.getConnection();
             String sql="select * from t_downloadlist where id=?";
-            PreparedStatement pst=connection.prepareStatement(sql);
+            PreparedStatement pst=conn.prepareStatement(sql);
             pst.setString(1,id);
             ResultSet rs=pst.executeQuery();
 
@@ -26,7 +26,7 @@ public class DownloadDao {
                         rs.getString("description"),rs.getString("size"),
                         rs.getString("start"),rs.getString("image"));
             }
-            connection.close();
+            conn.close();
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -36,12 +36,11 @@ public class DownloadDao {
 
     public ArrayList<Download> getAllDownloadList() {
         ArrayList<Download> downloads=new ArrayList<>();
+        Connection conn= new JdbcUtil().getConnection();
         try{
-            Connection connection=JdbcUtil.getConnection();
-
             String sql="select * from t_downloadList";
 
-            PreparedStatement pst=connection.prepareStatement(sql);
+            PreparedStatement pst=conn.prepareStatement(sql);
             ResultSet rs=pst.executeQuery();
             while (rs.next()){
                 Download download=new Download(rs.getString("id"),

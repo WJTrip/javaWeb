@@ -9,7 +9,7 @@
     <div id="container">
         <div id="header">
             <div id="rightTop">
-                当前用户: <span><%=session.getAttribute("currentUserName")%></span>
+                当前用户: <span>${currentUser.chrName}</span>
                 <a href="${pageContext.request.contextPath}/Logout">&nbsp;[安全退出]</a>
             </div>
             <div id="menu">

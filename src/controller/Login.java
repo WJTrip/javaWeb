@@ -6,10 +6,7 @@ import dao.UserDao;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -22,6 +19,8 @@ public class Login extends HttpServlet {
         String userName=request.getParameter("userName");
         String passWord=request.getParameter("passWord");
         String userCode=request.getParameter("userCode");
+        //是否勾选自动登录
+        String checkBox=request.getParameter("checkBox");
 
         //跳转地址
         String forwardPath="";
@@ -36,12 +35,8 @@ public class Login extends HttpServlet {
             forwardPath="/error.jsp";
         }else{//验证码正确
             UserDao dao=new UserDao();
-            User user=null;
-            try {
-                user=dao.get(userName);
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            User user= null;
+                user = dao.get(userName);
             if (user == null) { //用户名不存在
                 request.setAttribute("info","用户名不存在!");
                 forwardPath="/error.jsp";
@@ -50,7 +45,17 @@ public class Login extends HttpServlet {
                     request.setAttribute("info", "密码错误!");
                     forwardPath = "/error.jsp";
                 }else{//密码正确
-                    session.setAttribute("currentUserName",user.getChrName());
+                    session.setAttribute("currentUser",user);
+
+                    if(checkBox!=null){
+                        //设置 cookie
+                        Cookie userName_cookie=new Cookie("userName",userName);
+                        userName_cookie.setMaxAge(7*24*60*60);
+                        response.addCookie(userName_cookie);
+                        Cookie passWord_cookie=new Cookie("passWord",passWord);
+                        passWord_cookie.setMaxAge(7*24*60*60);
+                        response.addCookie(passWord_cookie);
+                    }
                     forwardPath="/main.jsp";
                 }
                 ///请求调度器 接口 提供调度request到另一个资源（servlet/jsp/html）的功能。
