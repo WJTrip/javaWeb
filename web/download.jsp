@@ -29,13 +29,13 @@
                 <%--将 <ul> 标签与 <li> 标签一起使用，创建无序列表。--%>
                 <ul>
                     <%--# 表示当前页面地址--%>
-                    <li><a href="${pageContext.request.contextPath}/main.jsp">首页</a></li>
+                    <li><a href="main.jsp">首页</a></li>
                     <li class="menuDiv"></li>
-                    <li><a href="${pageContext.request.contextPath}/GetDownloadList">资源下载</a></li>
+                    <li><a href="GetDownloadList">资源下载</a></li>
                     <li class="menuDiv"></li>
                     <li><a href="#">用户管理</a></li>
                     <li class="menuDiv"></li>
-                    <li><a href="#">资源管理</a></li>
+                    <li><a href="userManage.jsp">资源管理</a></li>
                     <li class="menuDiv"></li>
                     <li><a href="#">个人中心</a></li>
                 </ul>

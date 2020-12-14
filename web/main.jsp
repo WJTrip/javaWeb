@@ -19,9 +19,9 @@
                     <%--# 表示当前页面地址--%>
                     <li><a href="#">首页</a></li>
                     <li class="menuDiv"></li>
-                    <li><a href="${pageContext.request.contextPath}/GetDownloadList">资源下载</a></li>
+                    <li><a href="GetDownloadList">资源下载</a></li>
                     <li class="menuDiv"></li>
-                    <li><a href="#">用户管理</a></li>
+                    <li><a href="userManage.jsp">用户管理</a></li>
                     <li class="menuDiv"></li>
                     <li><a href="#">资源管理</a></li>
                     <li class="menuDiv"></li>

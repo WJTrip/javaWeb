@@ -1,0 +1,27 @@
+ body{
+     background-color: #a96f63;
+ }
+
+ #errorDiv{
+     background: url("../images/error.png") no-repeat 450px 120px;
+     width: 100%;
+     height: 100%;
+ }
+
+ #errorHint{
+     padding-left: 280px;
+     padding-top: 230px;
+     text-align: center;
+ }
+
+ #errorInfo,
+ a,
+ #leaveTime{
+     color:red;
+     font-weight: bold;
+ }
+
+ #leaveTime {
+     font-size: 20px;
+     margin: 0 5px;
+ }

@@ -1,10 +1,9 @@
 package Utils;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.InputStream;
+
 import java.io.InputStreamReader;
-import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,14 +16,13 @@ public class JdbcUtil {
     private static String USER="";
     private static String PASSWORD="";
     static {
-        Properties properties=new Properties();
         try {
-
+            Properties properties=new Properties();
             //使用类加载器加载资源，path不以‘/’开头时默认是从此类所在的包下取资源
             //以‘/’开头则是从ClassPath（src）根下获取
-            InputStream in=JdbcUtil.class.getResourceAsStream("/jdbc.properties");
-            properties.load(in);
-            in.close();
+            InputStream is=JdbcUtil.class.getResourceAsStream("/jdbc.properties");
+            properties.load(new InputStreamReader(is,"utf-8"));
+            is.close();
             DRIVER=properties.getProperty("DRIVER");
             URL=properties.getProperty("URL");
             USER=properties.getProperty("USER");

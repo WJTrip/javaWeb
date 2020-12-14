@@ -16,6 +16,7 @@ import java.util.Map;
 @WebServlet(urlPatterns = "/ajaxLoginCheck")
 public class ajaxLoginCheck extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println(1111);
         request.setCharacterEncoding("utf-8");
         String userName=request.getParameter("userName");
         String passWord=request.getParameter("passWord");
@@ -59,10 +60,11 @@ public class ajaxLoginCheck extends HttpServlet {
         }
         String jsonString=new Gson().toJson(map);
         response.setContentType("text/html;charset=utf-8");
-        PrintWriter out=response.getWriter();
-        out.print(jsonString);
-        out.flush();
-        out.close();
+//        PrintWriter out=response.getWriter();
+//        out.print(jsonString);
+//        out.flush();
+//        out.close();
+        response.getWriter().write(jsonString);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

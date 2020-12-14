@@ -5,12 +5,22 @@ public class User {
     private String passWord;
     private String chrName;
     private String role;
+    private String mail;
+    private String provinceID;
+    private String provinceName;
+    private String cityID;
+    private String cityName;
 
-    public User(String userName, String passWord, String chrName, String role) {
+    public User() {
+    }
+
+    public User(String userName, String passWord, String chrName, String mail, String provinceID, String cityID) {
         this.userName = userName;
         this.passWord = passWord;
         this.chrName = chrName;
-        this.role = role;
+        this.mail = mail;
+        this.provinceID = provinceID;
+        this.cityID = cityID;
     }
 
     public String getUserName() {
@@ -43,5 +53,45 @@ public class User {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getProvinceID() {
+        return provinceID;
+    }
+
+    public void setProvinceID(String provinceID) {
+        this.provinceID = provinceID;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getCityID() {
+        return cityID;
+    }
+
+    public void setCityID(String cityID) {
+        this.cityID = cityID;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }
